@@ -1,11 +1,12 @@
-import styles from "./page.module.css";
 import { Top } from "../components/Top";
+import { getAllUsers } from "../../lib/supabaseFunctions";
 
-export default function Home() {
+export default async function Home() {
+  const users = await getAllUsers();
   return (
-    <div className={styles.page}>
+    <div>
       <main>
-        <Top />
+        <Top inituUsers={users} />
       </main>
     </div>
   );
